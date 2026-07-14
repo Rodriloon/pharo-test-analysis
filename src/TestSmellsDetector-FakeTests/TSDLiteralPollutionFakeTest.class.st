@@ -7,10 +7,11 @@ Class {
 
 { #category : 'tests' }
 TSDLiteralPollutionFakeTest >> testWithLiteralPollution [
-	| a b c d |
-	a := 10.
-	b := 20.
-	c := 30.
-	d := 'hola'.
-	self assert: a + b + c equals: 60
+	"A fake test polluted with integers, floats, strings, symbols, and literal arrays"
+	| temp |
+	temp := 42.                 "Integer"
+	temp := 3.14.               "Float"
+	temp := 'stefan'.           "String"
+	temp := #rottenTest.        "Symbol"
+	temp := #(first second)     "Literal Array"
 ]

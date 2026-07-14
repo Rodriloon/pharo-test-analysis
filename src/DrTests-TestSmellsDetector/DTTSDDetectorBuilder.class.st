@@ -41,6 +41,22 @@ DTTSDDetectorBuilder class >> detector: aDetector setDataBlock: aBlock [
 ]
 
 { #category : 'accessing' }
+DTTSDDetectorBuilder class >> literalPollution [
+	^ self
+		detector: TSDLiteralPollutionDetector new
+		setDataBlock: [ :aTestData :tests |
+			aTestData literalPollutionTests: (tests select: #hasLiteralPollution) ]
+]
+
+{ #category : 'accessing' }
+DTTSDDetectorBuilder class >> magicLiteral [
+	^ self
+		detector: TSDMagicLiteralDetector new
+		setDataBlock: [ :aTestData :tests |
+			aTestData magicLiteralTests: (tests select: #hasMagicLiterals) ]
+]
+
+{ #category : 'accessing' }
 DTTSDDetectorBuilder class >> overwrittenSetup [
 
 	| detector |
@@ -48,6 +64,14 @@ DTTSDDetectorBuilder class >> overwrittenSetup [
 
 	^ self detector: detector setDataBlock: [ :aTestData :tests | 
 		aTestData overwrittenSetupTests: (tests select: #doesOverwritesSetup ) ]
+]
+
+{ #category : 'accessing' }
+DTTSDDetectorBuilder class >> tooManyAssertions [
+	^ self
+		detector: TSDTooManyAssertionsDetector new
+		setDataBlock: [ :aTestData :tests |
+			aTestData tooManyAssertionsTests: (tests select: #hasTooManyAssertions) ]
 ]
 
 { #category : 'accessing' }

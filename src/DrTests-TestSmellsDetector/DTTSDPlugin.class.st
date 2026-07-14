@@ -40,7 +40,10 @@ DTTSDPlugin >> builder [
 			  DTTSDDetectorBuilder assertionless.
 			  DTTSDDetectorBuilder overwrittenSetup.
 			  DTTSDDetectorBuilder classReferences.
-			  DTTSDDetectorBuilder uselessSetup }
+			  DTTSDDetectorBuilder uselessSetup.
+			  DTTSDDetectorBuilder tooManyAssertions .
+    		  DTTSDDetectorBuilder magicLiteral .
+    		  DTTSDDetectorBuilder literalPollution }
 ]
 
 { #category : 'accessing' }

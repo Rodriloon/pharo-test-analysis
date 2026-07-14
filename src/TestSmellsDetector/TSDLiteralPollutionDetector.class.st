@@ -23,10 +23,7 @@ TSDLiteralPollutionDetector >> hasLiteralPollution [
 	literalsCount := self compiledMethod ast statements isNotEmpty
 		ifTrue: [ 
 			self compiledMethod ast allChildren count: [ :node | 
-				node isLiteralNode and: [ 
-					node value isNumber or: [ 
-					node value isString and: [ 
-					node value isSymbol not ] ] ] ] ]
+				node isLiteralNode ] ]
 		ifFalse: [ 0 ].
 	^ literalsCount > self maxLiterals
 ]
